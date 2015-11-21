@@ -30,6 +30,27 @@ feature 'navigate to post pages' do
     expect(page.status_code).to eq(200)
   end
 
+  scenario 'form route works with new action' do
+    visit new_post_path
+    expect(page.status_code).to eq(200)
+  end
+
+  scenario 'form renders with the new action' do
+    visit new_post_path
+    expect(page).to have_content("Post Form")
+  end
+
+  scenario 'new form submits content and redirects to show page' do
+    visit new_post_path
+
+    fill_in 'title', with: "My post title"
+    fill_in 'description', with: "My post description"
+
+    click_on "Submit Post"
+
+    expect(page).to have_content("My post title")
+  end
+
   scenario 'title is shown on the show page in a h1 tag' do
     visit post_path(subject)
     expect(page).to have_css("h1", text: "My Great Post")

@@ -8,6 +8,14 @@ class PostsController < ApplicationController
   def show
   end
 
+  def new
+  end
+
+  def create
+    session[:form_params] = params.inspect
+    redirect_to new_post_path
+  end
+
   private
 
     def set_post
