@@ -40,7 +40,7 @@ feature 'navigate to post pages' do
     expect(page).to have_content("Post Form")
   end
 
-  scenario 'new form submits content and redirects to show page' do
+  scenario 'new form submits content and redirects' do
     visit new_post_path
 
     fill_in 'title', with: "My post title"

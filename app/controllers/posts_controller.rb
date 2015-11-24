@@ -12,8 +12,11 @@ class PostsController < ApplicationController
   end
 
   def create
-    session[:form_params] = params.inspect
-    redirect_to new_post_path
+    @post = Post.new
+    @post[:title] = params[:title]
+    @post[:description] = params[:description]
+    @post.save
+    redirect_to post_path(@post)
   end
 
   private
