@@ -1,4 +1,13 @@
 Rails.application.routes.draw do
+  resources :accounts
+  get 'admin/dashboard'
+
+  get 'admin/stats'
+
+  get 'admin/financials'
+
+  get 'admin/settings'
+
   get 'about', to: 'static#about'
 
   resources :posts, only: [:index, :new, :create]
