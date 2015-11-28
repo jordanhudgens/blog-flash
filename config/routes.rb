@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :articles
   resources :accounts
   get 'admin/dashboard'
 
